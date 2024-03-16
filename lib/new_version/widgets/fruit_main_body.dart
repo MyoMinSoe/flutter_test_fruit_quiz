@@ -53,10 +53,24 @@ class _FruitMainBodyState extends State<FruitMainBody> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text('CORRECT [ $correct ]'),
-              Text('WRONG [ $wrong ]'),
+              Text(
+                'CORRECT : $correct',
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 1, 146, 5),
+                ),
+              ),
+              Text(
+                'WRONG : $wrong',
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 185, 14, 2),
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 10),
@@ -118,11 +132,13 @@ class _FruitMainBodyState extends State<FruitMainBody> {
                 itemCount: fname[index].length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
-                  crossAxisSpacing: 5,
+                  crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                 ),
                 itemBuilder: (context, i) {
                   return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        shape: const BeveledRectangleBorder()),
                     onPressed: () {
                       userAnswer.add(fname[index][i]);
                       showanswer.replaceRange(showanswerIndex,
@@ -144,41 +160,47 @@ class _FruitMainBodyState extends State<FruitMainBody> {
                         if (index == fruitrandom.length - 1) {
                           index = 0;
                           showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: const Text('Show Result'),
-                                  content: SizedBox(
-                                    width: width * 0.7,
-                                    height: height * 0.5,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          'Correct : $correct',
-                                          style: const TextStyle(fontSize: 30),
-                                        ),
-                                        Text(
-                                          'Wrong : $wrong',
-                                          style: const TextStyle(fontSize: 30),
-                                        ),
-                                        Text(
-                                          'Total : ${correct + wrong}',
-                                          style: const TextStyle(fontSize: 30),
-                                        ),
-                                      ],
-                                    ),
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                alignment: Alignment.center,
+                                shape: const BeveledRectangleBorder(),
+                                contentTextStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blue,
+                                ),
+                                content: SizedBox(
+                                  width: width * 0.6,
+                                  height: height * 0.2,
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      const Text('Your Answer Result'),
+                                      Text(
+                                        'Correct  :  $correct',
+                                      ),
+                                      Text(
+                                        'Wrong  :  $wrong',
+                                      ),
+                                      Text(
+                                        'Total  :  ${correct + wrong}',
+                                      ),
+                                    ],
                                   ),
-                                  actions: [
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          exit(0);
-                                        },
-                                        child: const Text('Quit'))
-                                  ],
-                                );
-                              });
+                                ),
+                                actions: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      exit(0);
+                                    },
+                                    child: const Text('Quit'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         }
                         index++;
                       }
@@ -187,7 +209,7 @@ class _FruitMainBodyState extends State<FruitMainBody> {
                     child: Text(
                       fname[index][i].toUpperCase(),
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
                       ),
                     ),
                   );
