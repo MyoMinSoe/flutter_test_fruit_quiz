@@ -82,50 +82,47 @@ class _FruitMainBodyState extends State<FruitMainBody> {
             fit: BoxFit.contain,
           ),
           //****** fruit image *********************************** */
-          const SizedBox(height: 5),
-          SizedBox(
-            height: 70,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    for (int i = 0; i < fruitrandom[index].name.length; i++)
-                      Container(
-                        alignment: Alignment.center,
-                        margin: const EdgeInsets.only(right: 10),
-                        color: Colors.blue.withOpacity(0.2),
-                        width: 30,
-                        height: 30,
-                        child: Text(
-                          showanswer[i],
-                          style: const TextStyle(
-                            fontSize: 25,
-                          ),
+          const SizedBox(height: 15),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (int i = 0; i < fruitrandom[index].name.length; i++)
+                    Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(right: 10),
+                      color: Colors.blue.withOpacity(0.2),
+                      width: 30,
+                      height: 30,
+                      child: Text(
+                        showanswer[i],
+                        style: const TextStyle(
+                          fontSize: 25,
                         ),
                       ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    for (int i = 0; i < fruitrandom[index].name.length; i++)
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        width: 30,
-                        height: 3,
-                        color: Colors.blue,
-                      ),
-                  ],
-                ),
-              ],
-            ),
+                    ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (int i = 0; i < fruitrandom[index].name.length; i++)
+                    Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      width: 30,
+                      height: 3,
+                      color: Colors.blue,
+                    ),
+                ],
+              ),
+            ],
           ),
           const SizedBox(height: 15),
           //*********** user answer letter *************************** */
           SizedBox(
-            height: height * 0.3,
+            height: height * 0.25,
             width: width * 0.8,
             child: GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
@@ -163,6 +160,11 @@ class _FruitMainBodyState extends State<FruitMainBody> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
+                                icon: const Icon(
+                                  Icons.emoji_emotions,
+                                  size: 50,
+                                  color: Colors.blue,
+                                ),
                                 alignment: Alignment.center,
                                 shape: const BeveledRectangleBorder(),
                                 contentTextStyle: const TextStyle(
@@ -197,7 +199,10 @@ class _FruitMainBodyState extends State<FruitMainBody> {
                                     },
                                     child: const Text(
                                       'Quit',
-                                      style: TextStyle(fontSize: 20),
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.blue,
+                                      ),
                                     ),
                                   ),
                                 ],
