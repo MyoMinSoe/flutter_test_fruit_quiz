@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:quizz/new_version/fruit_model_and_list/fruit_list.dart';
 import 'package:quizz/new_version/fruit_model_and_list/fruit_model.dart';
-import 'package:quizz/new_version/widgets/answer_buttons.dart';
 
 Random random = Random();
 
