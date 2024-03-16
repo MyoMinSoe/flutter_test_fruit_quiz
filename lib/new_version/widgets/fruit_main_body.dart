@@ -60,14 +60,16 @@ class _FruitMainBodyState extends State<FruitMainBody> {
             ],
           ),
           const SizedBox(height: 10),
+          //***** correct   wrong ******************************** */
           Image.asset(
             width: width * 0.6,
             height: height * 0.35,
             fImage[index],
             fit: BoxFit.contain,
           ),
+          //****** fruit image *********************************** */
           const SizedBox(height: 10),
-          Container(
+          SizedBox(
             height: 70,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -107,6 +109,7 @@ class _FruitMainBodyState extends State<FruitMainBody> {
             ),
           ),
           const SizedBox(height: 20),
+          //*********** user answer letter *************************** */
           SizedBox(
             height: height * 0.3,
             width: width * 0.8,
@@ -189,7 +192,8 @@ class _FruitMainBodyState extends State<FruitMainBody> {
                     ),
                   );
                 }),
-          )
+          ),
+          //************* letter button ************************** */
         ],
       ),
     );
