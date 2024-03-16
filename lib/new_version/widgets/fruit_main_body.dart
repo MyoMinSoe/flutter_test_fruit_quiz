@@ -82,7 +82,7 @@ class _FruitMainBodyState extends State<FruitMainBody> {
             fit: BoxFit.contain,
           ),
           //****** fruit image *********************************** */
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
           SizedBox(
             height: 70,
             child: Column(
@@ -122,7 +122,7 @@ class _FruitMainBodyState extends State<FruitMainBody> {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           //*********** user answer letter *************************** */
           SizedBox(
             height: height * 0.3,
@@ -195,7 +195,10 @@ class _FruitMainBodyState extends State<FruitMainBody> {
                                     onPressed: () {
                                       exit(0);
                                     },
-                                    child: const Text('Quit'),
+                                    child: const Text(
+                                      'Quit',
+                                      style: TextStyle(fontSize: 20),
+                                    ),
                                   ),
                                 ],
                               );
